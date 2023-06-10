@@ -151,18 +151,23 @@ def scrape_lawyer_data(urls, page_num):
         industry_groups = []
 
         try:
-            profile_image = driver.find_element(By.CLASS_NAME, 'profile-img.order-1.order-xl-2.mb-xl-4 img').get_attribute('src')
-
+            profile_image = driver.find_element(By.CLASS_NAME, 'profile-img.order-1.order-xl-2.mb-xl-4 img')
+            if profile_image:
+                profile_image = profile_image.get_attribute('src')
         except NoSuchElementException as e:
             print(e.msg)
 
         try:
-            lawyer_name = driver.find_element(By.ID, "attorney_name").text
+            lawyer_name = driver.find_element(By.ID, "attorney_name")
+            if lawyer_name:
+                lawyer_name = lawyer_name.text
         except NoSuchElementException as e:
             print(e.msg)
         
         try:
-            lawyer_phone = driver.find_element(By.CLASS_NAME, 'profile-phone-header.single-link').text
+            lawyer_phone = driver.find_element(By.CLASS_NAME, 'profile-phone-header.single-link')
+            if lawyer_phone:
+                lawyer_phone = lawyer_phone.get_attribute("text")
         except NoSuchElementException as e:
             print(e.msg)
         
