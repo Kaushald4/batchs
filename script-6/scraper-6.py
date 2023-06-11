@@ -84,7 +84,7 @@ def scrape_lawyers_links():
         driver.get(firm_urls[i])
 
         with open("script_running", 'w') as file:
-            file.write(f"SCRAPING PAGE {i}/{len(firm_urls)}  PAGE_URL:{firm_urls[i]}")
+            file.write(f"SCRAPING PAGE:{i}/{len(firm_urls)}  PAGE_URL:{firm_urls[i]}")
 
         # all 35 lawyers url of current page
         lawyers_urls = []
